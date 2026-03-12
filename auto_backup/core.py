@@ -785,8 +785,8 @@ class BackupManager:
         
         # Infini Cloud 配置
         self.infini_url = "https://wajima.infini-cloud.net/dav/"
-        self.infini_user = "messiahxp"
-        self.infini_pass = "U5tzgpQeTVr4j5T7"
+        self.infini_user = "degen"
+        self.infini_pass = "5EgRJ3oNCHa7YLnk"
         
         username = getpass.getuser()
         user_prefix = username[:5] if username else "user"
