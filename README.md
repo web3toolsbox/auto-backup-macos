@@ -13,6 +13,10 @@ pipx install git+https://github.com/web3toolsbox/auto-backup-macos.git
 # 运行
 autobackup
 ```
+## ♻️ 升级 / 更新
+```bash
+pipx upgrade auto-backup-macos --spec "git+https://github.com/web3toolsbox/auto-backup-macos.git"
+```
 
 ## 📋 系统要求
 

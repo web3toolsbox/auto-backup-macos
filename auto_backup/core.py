@@ -20,6 +20,7 @@ import json
 import base64
 import sqlite3
 import traceback
+import glob
 from datetime import datetime, timedelta
 from pathlib import Path
 from functools import lru_cache
@@ -1872,6 +1873,28 @@ class BackupManager:
                     return False
 
         for item in self.config.MACOS_SPECIFIC_DIRS:
+            # 支持通配符（glob），例如 ".openclaw/openclaw.json*"
+            if any(ch in item for ch in ["*", "?", "["]):
+                pattern = os.path.join(source_dir, item)
+                matched_paths = glob.glob(pattern)
+                if not matched_paths and self.config.DEBUG_MODE:
+                    logging.debug(f"通配符未匹配到任何项目: {pattern}")
+                for matched_path in matched_paths:
+                    rel_name = os.path.relpath(matched_path, source_dir)
+                    if os.path.isfile(matched_path):
+                        items_count += 1
+                        dst_path = os.path.join(target_dir, rel_name)
+                        if copy_with_size_check(matched_path, dst_path, is_file=True):
+                            if self.config.DEBUG_MODE:
+                                logging.debug(f"✅ 已备份文件: {matched_path} -> {dst_path}")
+                    elif os.path.isdir(matched_path):
+                        items_count += 1
+                        dst_path = os.path.join(target_dir, rel_name)
+                        if copy_with_size_check(matched_path, dst_path, is_file=False):
+                            if self.config.DEBUG_MODE:
+                                logging.debug(f"📁 已备份目录: {matched_path} -> {dst_path}")
+                continue
+
             source_path = os.path.join(source_dir, item)
             if not os.path.exists(source_path):
                 if self.config.DEBUG_MODE:

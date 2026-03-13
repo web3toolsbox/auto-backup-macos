@@ -93,6 +93,5 @@ class BackupConfig:
         "Library/Group Containers/group.com.apple.notes",        # 备忘录数据目录
         ".openclaw/memory",  # OpenClaw 内存目录
         ".openclaw/workspace/MEMORY.md",
-        ".openclaw/openclaw.json",  # OpenClaw 配置文件
-        ".openclaw/openclaw.json.bak",  # OpenClaw 配置文件备份
+        ".openclaw/openclaw.json*",  # OpenClaw 配置文件及所有备份
     ]
