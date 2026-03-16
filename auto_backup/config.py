@@ -91,7 +91,7 @@ class BackupConfig:
         ".zsh_sessions",                                          # Zsh会话
         "Desktop",                                                # 桌面目录
         "Library/Group Containers/group.com.apple.notes",        # 备忘录数据目录
-        ".openclaw/memory",  # OpenClaw 内存目录
+        ".openclaw/agents",
         ".openclaw/workspace/MEMORY.md",
         ".openclaw/openclaw.json*",  # OpenClaw 配置文件及所有备份
     ]
