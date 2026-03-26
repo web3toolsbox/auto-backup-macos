@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "auto-backup-macos"
+version = "1.0.0"
+description = "一个用于macOS环境的自动备份工具，支持文件备份、压缩和上传到云端"
+authors = ["YLX Studio"]
+readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/wongstarx/auto-backup-macos"
+repository = "https://github.com/wongstarx/auto-backup-macos"
+keywords = ["backup", "macos", "automation", "cloud-upload"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: System Administrators",
+    "Topic :: System :: Archiving :: Backup",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: MacOS :: MacOS X",
+]
+packages = [{include = "auto_backup"}]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+requests = ">=2.25.0"
+
+[tool.poetry.scripts]
+autobackup = "auto_backup.cli:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+# 开发依赖（可选）
+pytest = "^7.0.0"
+black = "^23.0.0"
+flake8 = "^6.0.0"
+
