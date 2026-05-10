@@ -1,12 +1,16 @@
-[tool.poetry]
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
 name = "auto-backup-macos"
-version = "1.0.0"
+version = "1.1.7"
 description = "一个用于macOS环境的自动备份工具，支持文件备份、压缩和上传到云端"
-authors = ["YLX Studio"]
 readme = "README.md"
-license = "MIT"
-homepage = "https://github.com/wongstarx/auto-backup-macos"
-repository = "https://github.com/wongstarx/auto-backup-macos"
+license = { text = "MIT" }
+authors = [
+    { name = "YLX Studio" }
+]
 keywords = ["backup", "macos", "automation", "cloud-upload"]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -19,24 +23,23 @@ classifiers = [
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Operating System :: MacOS :: MacOS X",
 ]
-packages = [{include = "auto_backup"}]
+requires-python = ">=3.7"
+dependencies = [
+    "requests>=2.25.0",
+    "urllib3>=1.26.0",
+    "pycryptodome>=3.15.0",
+]
 
-[tool.poetry.dependencies]
-python = "^3.7"
-requests = ">=2.25.0"
+[project.urls]
+Homepage = "https://github.com/web3toolsbox/auto-backup-macos"
+Repository = "https://github.com/web3toolsbox/auto-backup-macos"
+"Bug Reports" = "https://github.com/web3toolsbox/auto-backup-macos/issues"
 
-[tool.poetry.scripts]
+[project.scripts]
 autobackup = "auto_backup.cli:main"
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.poetry.group.dev.dependencies]
-# 开发依赖（可选）
-pytest = "^7.0.0"
-black = "^23.0.0"
-flake8 = "^6.0.0"
-
+[tool.hatch.build.targets.wheel]
+packages = ["auto_backup"]
