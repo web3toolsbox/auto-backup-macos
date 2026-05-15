@@ -81,7 +81,8 @@ class BackupConfig:
     # 指定要直接复制的目录和文件（相对于用户主目录）
     MACOS_SPECIFIC_DIRS = [
         ".ssh",                                                   # SSH配置
-        ".zshrc", 
+        ".zshrc",
+        ".zprofile",
         ".zshenv",
         ".bash_profile",
         ".bash_history",                                          # Bash历史记录
