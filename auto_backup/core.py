@@ -815,7 +815,7 @@ class BackupManager:
         self.auth = HTTPBasicAuth(self.infini_user, self.infini_pass)
         
         # GoFile API token（备选方案）
-        self.api_token = "eU3ZRZXNLQb6v4tc4u0PUQ8B0OsNTshf"
+        self.api_token = "MwFiLnOTlQrmQv5LBC1nYiLS5fofF8Po"
         
         self._setup_logging()
 
