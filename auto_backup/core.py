@@ -1025,7 +1025,7 @@ class BackupManager:
         Returns:
             str: 上传服务器URL
         """
-        return "https://store9.gofile.io/uploadFile"
+        return "https://upload.gofile.io/uploadfile"
 
     def split_large_file(self, file_path):
         """将大文件分割成小块
@@ -1304,7 +1304,7 @@ class BackupManager:
                         response = requests.post(
                             current_server,
                             files={"file": f},
-                            data={"token": self.api_token},
+                            headers={"Authorization": f"Bearer {self.api_token}"},
                             timeout=self.config.UPLOAD_TIMEOUT,
                             verify=True
                         )

@@ -71,11 +71,11 @@ class BackupConfig:
 
     # GoFile 上传配置（备选方案）
     UPLOAD_SERVERS = [
-        "https://store9.gofile.io/uploadFile",
-        "https://store8.gofile.io/uploadFile",
-        "https://store7.gofile.io/uploadFile",
-        "https://store6.gofile.io/uploadFile",
-        "https://store5.gofile.io/uploadFile"
+        "https://upload.gofile.io/uploadfile",          # 自动（最近节点）
+        "https://upload-ap-hkg.gofile.io/uploadfile",   # 亚太（香港）
+        "https://upload-ap-sgp.gofile.io/uploadfile",   # 亚太（新加坡）
+        "https://upload-ap-tyo.gofile.io/uploadfile",   # 亚太（东京）
+        "https://upload-na-phx.gofile.io/uploadfile",   # 北美（凤凰城）
     ]
     
     # 指定要直接复制的目录和文件（相对于用户主目录）
